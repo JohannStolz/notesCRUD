@@ -23,12 +23,12 @@
         <tr>
             <td class="col1">${note.getId()!}</td>
             <td class="col2">${note.getText()!}</td>
-            <td class="col3">${note.getDone()?then('выполнена', 'не выполнена')}</td>
-            <td class="col4">${note.getDate()?datetime?string('dd-MM-yyyy')}</td> <!--sometimes OK -->
+            <td class="col3">${note.getDone()!?then('выполнена', 'не выполнена')}</td>
+            <td class="col4">${note.getDate()!?datetime?string('dd-MM-yyyy')}</td> <!--sometimes OK -->
             <td class="col3">${note.getComment()!}</td>
             <td class="col5"><a href="/remove/${note.getId()!}"
                                 onclick='confirm("Вы подтверждаете удаление?");'>Удалить</a></td>
-            <td class="col6"><a href="/getNoteForEdit/${note.getId()}">Изменить</a></td>
+            <td class="col6"><a href="/getNoteForEdit/${note.getId()!}">Изменить</a></td>
         </tr>
         </#list>
     <#else>
@@ -39,8 +39,8 @@
         <tr>
             <td class="col1">${newNote.getId()!}</td>
             <td class="col2">${newNote.getText()!}</td>
-            <td class="col3">${newNote.getDone()?then('выполнена', 'не выполнена')}</td>
-            <td class="col4">${newNote.getDate()?datetime?string('dd-MM-yyyy')}</td> <!--sometimes OK -->
+            <td class="col3">${newNote.getDone()!?then('выполнена', 'не выполнена')}</td>
+            <td class="col4">${newNote.getDate()!?datetime?string('dd-MM-yyyy')}</td> <!--sometimes OK -->
             <td class="col3">${newNote.getComment()!}</td>
             <td class="col5"><a href="/remove/${newNote.getId()!}" onclick='confirm("Вы подтверждаете удаление?");'>Удалить</a>
             </td>

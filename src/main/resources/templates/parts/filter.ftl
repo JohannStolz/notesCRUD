@@ -1,7 +1,7 @@
 <#macro page>
 <div class="wrapper">
-    <div class="head">В базе данных ${quantity} сообщений, из них ${quantityOfNotesIsDone} выполненных
-        и ${quantityOfNotesNotDone} невыполненных.
+    <div class="head">В базе данных ${quantity!} сообщений, из них ${quantityOfNotesIsDone!} выполненных
+        и ${quantityOfNotesNotDone!} невыполненных.
     </div>
     <article class="main">
         <form method="post" action="/paginator" id="sortForm">
@@ -60,7 +60,7 @@
                 <#else> <#assign name2 = "все сообщения">
                 </#if>
 
-            <div> сортировка дата/id :</div> <div class = "p">${name1}</div>сортировка выполнение : <div class = "p">${name2}</div>
+            <div> сортировка дата/id :</div> <div class = "p">${name1!}</div>сортировка выполнение : <div class = "p">${name2!}</div>
             </#if>
         </div>
 
