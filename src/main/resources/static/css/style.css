@@ -1,0 +1,226 @@
+input[type="number"] .tbl {
+    width: 92%;
+    margin-right: -3px;
+}
+
+input[type="text"] .t {
+    width: 100%;
+    margin-right: -3px;
+}
+
+body {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+}
+
+.c {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    /* Рамка border: 1px solid #333;*/
+    display: inline-block;
+    background-color: #f2f2f2; /* Цвет фона */
+    padding: 5px 15px; /* Поля */
+    text-decoration: none; /* Убираем подчёркивание */
+    color: #000; /* Цвет текста */
+}
+
+.c:hover {
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); /* Тень */
+    background: linear-gradient(to bottom, #fcfff4, #e9e9ce); /* Градиент */
+    color: #aa5621;
+}
+
+.al { /*предупреждения*/
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+
+    width: 100%; /* Ширина слоя */
+    background: #ffd200; /* Цвет фона */
+    padding: 10px; /* Поля вокруг текста */
+    border: 3px double white;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(20, 26, 21);
+    line-height: 1.3em;
+}
+.pag { /*page quick */
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    margin-left: 42%; /* Отступ слева */
+    width: 16%; /* Ширина слоя */
+    background-color: #f2f2f2; /* Цвет фона */
+    padding: 10px; /* Поля вокруг текста */
+    border: 3px double white;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(20, 26, 21);
+    line-height: 1.3em;
+}
+
+.db { /*db info*/
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    margin-left: 30%; /* Отступ слева */
+    width: 40%; /* Ширина слоя */
+    background-color: #f2f2f2; /* Цвет фона */
+    padding: 5px; /* Поля вокруг текста */
+    border: 3px double white;
+    box-sizing: border-box;
+    text-align: center;
+    color: rgb(20, 26, 21);
+    line-height: 1.3em;
+}
+
+#customers {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin: auto;
+}
+
+#customers td, #customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#customers tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#customers tr:hover {
+    background-color: #ddd;
+}
+
+#customers th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: center;
+    background-color: #4CAF50;
+    color: white;
+}
+
+input:focus {
+    background: #eaeaea;
+}
+
+input {
+    font-size: 100%;
+}
+
+.col1 {
+    width: 5%;
+}
+
+.col2 {
+    width: 35%;
+    word-break: break-all;
+}
+
+.col3 {
+    width: 10%;
+}
+
+.col4 {
+    width: 10%;
+}
+
+.col5 {
+    width: 10%;
+}
+
+.col6 {
+    width: 10%;
+}
+
+.ti { /* формат инпута в таблице*/
+    text-align: center;
+    margin: auto;
+    padding: 0;
+    width: 92%;
+    height: 92%;
+}
+
+.wrapper {
+    display: flex;
+    flex-flow: row wrap;
+    font-weight: bold;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+.wrapper > * {
+    padding: 10px;
+    flex: 1 100%;
+    border: 1px solid #ddd;
+
+}
+
+.head {
+    text-align: center;
+    background-color: #8faf7d;
+    color: white;
+    font-size: 120%;
+}
+
+.footer {
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.main {
+    font-size: 110%;
+    font-weight: 300;
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.aside-1 {
+    text-align: center;
+    background-color: #f2f2f2;
+}
+
+.aside-2 {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: medium;
+    font-weight: lighter;
+        text-align: center;
+    background-color: #f2f2f2;
+}
+.p {
+    font-family: Verdana, Arial, Helvetica, sans-serif;
+    font-size: small;
+    font-weight: bold;/* Рубленый шрифт заголовка */
+}
+
+@media all and (min-width: 600px) {
+    .aside {
+        flex: 1 auto;
+    }
+}
+
+@media all and (min-width: 800px) {
+    .main {
+        flex: 3 0px;
+    }
+
+    .aside-1 {
+        order: 1;
+    }
+
+    .main {
+        order: 2;
+    }
+
+    .aside-2 {
+        order: 3;
+    }
+
+    .footer {
+        order: 4;
+    }
+}
+
+input.text {
+    min-width: 70%;
+    max-width: 100%;
+}
+
+input.nmb {
+    min-width: 100%;
+    max-width: 100%;
+}
