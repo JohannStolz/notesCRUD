@@ -26,7 +26,7 @@ CREATE PROCEDURE load_note_test_data()
     WHILE v_counter < v_max DO
       INSERT INTO note (text, is_done, date, comment) VALUES (
         CONCAT('text of note', v_counter)
-        , FLOOR(RAND() * 1)
+        , 0
         , NOW(),
         CONCAT('comment for note №', v_counter)
       );
