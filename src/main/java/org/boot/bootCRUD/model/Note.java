@@ -1,4 +1,4 @@
-package org.boot.bootCRUD.note;
+package org.boot.bootCRUD.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -38,7 +38,7 @@ public class Note {
     }
 
     public Date getDate() {
-        return date != null ? date : new Date();//ЗАТЫЧКА ВЫДАЕТ НЬЮ ДЭЙТ
+        return date;//
     }
 
     public void setDate(Date date) {

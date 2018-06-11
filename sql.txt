@@ -1,0 +1,39 @@
+CREATE DATABASE IF NOT EXISTS test
+  COLLATE utf8_general_ci;
+
+USE test;
+
+DROP TABLE IF EXISTS note;
+CREATE TABLE NOTE (
+  id           INT          NOT NULL UNIQUE AUTO_INCREMENT,
+  text         VARCHAR(255) NOT NULL,
+  is_done      BIT          NOT NULL,
+  date DATETIME     NOT NULL        DEFAULT CURRENT_TIMESTAMP,
+  comment      VARCHAR(255) NOT NULL,
+  PRIMARY KEY (id)
+);
+
+DROP PROCEDURE IF EXISTS load_note_test_data;
+
+DELIMITER #
+CREATE PROCEDURE load_note_test_data()
+  BEGIN
+    DECLARE v_max INT UNSIGNED DEFAULT 40;
+    DECLARE v_counter INT UNSIGNED DEFAULT 0;
+
+    TRUNCATE TABLE note;
+    START TRANSACTION;
+    WHILE v_counter < v_max DO
+      INSERT INTO note (text, is_done, date, comment) VALUES (
+        CONCAT('text of note', v_counter)
+        , FLOOR(RAND() * 1)
+        , NOW(),
+        CONCAT('comment for note №', v_counter)
+      );
+      SET v_counter = v_counter + 1;
+    END WHILE;
+    COMMIT;
+  END #
+
+DELIMITER ;
+CALL load_note_test_data();

@@ -58,10 +58,10 @@
      <div class="al">Редактирование заметки</div>
     <tr>
         <td align="left">
-            <input type="number" form="myform" name="id" value= ${notes.getId()!} class="ti" width="150px" readonly>
+            <input type="number" form="myform" name="id" value= "${notes.getId()!}" class="ti" width="150px" readonly>
         </td>
         <td align="left" class="col2">
-            <input type="text" align="left" name="text" form="myform" value= ${notes.getText()!} class="ti">
+            <input type="text" align="left" name="text" form="myform" value= "${notes.getText()!}" class="ti">
         </td>
         <td align="left">
             <input type="radio" width="100%" name="isDone" id="bo1" align="center" value="true" form="myform"
@@ -70,10 +70,10 @@
         </td>
         <td align="left">
             <input type="text" class="ti" name="date" id="dat" pattern="(\d{2})-(\d{2})-(\d{4})"
-                   value= ${notes.getDate()?datetime?string('dd-MM-yyyy')} form="myform">
+                   value= "${notes.getDate()?datetime?string('dd-MM-yyyy')}" form="myform">
         </td>
         <td align="left">
-            <input type="text" class="ti" name="comment" form="myform" value= ${notes.getComment()!} form="myform">
+            <input type="text" class="ti" name="comment" form="myform" value= "${notes.getComment()!}" form="myform">
         </td>
         <td align="left"><a href="/remove/${(notes.getId())!}" onclick='confirm("Вы подтверждаете удаление?");'>Удалить</a>
         </td>

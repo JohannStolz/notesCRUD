@@ -19,7 +19,7 @@
 <body>
 
 <div id="footer">
-    Приложение Notes. All rights reserved. Не стреляйте в погромиста, автор кодит, как умеет.<br>
+    Приложение Notes. All rights probably reserved. Не стреляйте в погромиста, автор кодит, как умеет.<br>
     JavaRush - one of the best educational resources, you know what I'm sayin? </div>
 </body>
 </html>

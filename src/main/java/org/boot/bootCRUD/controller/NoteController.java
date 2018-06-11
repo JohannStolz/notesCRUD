@@ -2,7 +2,7 @@ package org.boot.bootCRUD.controller;
 
 
 import org.boot.bootCRUD.dao.NoteRepo;
-import org.boot.bootCRUD.note.Note;
+import org.boot.bootCRUD.model.Note;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 
-@Controller// This means that this class is a Controller
+@Controller
 public class NoteController {
     @Autowired
     private NoteRepo noteRepo;
@@ -91,22 +91,8 @@ public class NoteController {
         return "getNoteForEdit";
     }
 
- /* @PostMapping("/remove/getNoteForEdit")
-    public String getNoteForEditFromRem(@RequestParam int id, Model model
-    ) {
-         long idLong = id;
-        Note note = noteRepo.findById(idLong);
-        getDbInfo(model);
-        model.addAttribute("notes", note);
-        return "getNoteForEdit";
-    }    */ 
-    
-
-    @PostMapping(value={"/getNoteForEdit", "/*/getNoteForEdit"} )
-    public String getNoteForEdit(@RequestParam int id, Model model
-    ) {
-        // Iterable<Note> notes = noteRepo.findAll();
-
+    @PostMapping(value = {"/getNoteForEdit", "/*/getNoteForEdit"})
+    public String getNoteForEdit(@RequestParam int id, Model model) {
         long idLong = id;
         Note note = noteRepo.findById(idLong);
         getDbInfo(model);
@@ -128,11 +114,7 @@ public class NoteController {
         if (note != null) {
             noteRepo.delete(note);
         }
-        /*Iterable<Note> notes = noteRepo.findAll();
-        model.addAttribute("notes", notes);
-        getDbInfo(model);  */
         getPaginateModel(countForPages, quantityOfNotesPerPageKeeper, filterKeeper, sortKeeper, model);
-
         getDbInfo(model);
         return "paginate";
     }
@@ -162,8 +144,10 @@ public class NoteController {
         Iterable<Note> notes;
         int quantityOfNotes;
         Pageable sizeOfPage;
-        quantityOfNotesPerPage = quantityOfNotesPerPage > 0 ? quantityOfNotesPerPage : getQuantityOfAllNotes();
-        switch (sort) {
+       int quantityOfAllNotes = getQuantityOfAllNotes();
+        quantityOfAllNotes = quantityOfAllNotes > 0 ? quantityOfAllNotes : 1;
+        quantityOfNotesPerPage = quantityOfNotesPerPage > 0 ? quantityOfNotesPerPage : quantityOfAllNotes;
+              switch (sort) {
             case "up": {
                 sizeOfPage = PageRequest.of(countForPage, quantityOfNotesPerPage, Direction.ASC, "date");
                 break;
@@ -231,7 +215,7 @@ public class NoteController {
         return "paginate";
     }
 
-    @PostMapping(value={"/page", "/*/page"})
+    @PostMapping(value = {"/page", "/*/page"})
     public String page(@RequestParam(value = "numberOfPage") int numberOfPage, Model model) {
         if (numberOfPage > 0 && numberOfPage <= quantityOfPages) {
             countForPages = numberOfPage - 1;
@@ -270,17 +254,3 @@ public class NoteController {
         return measuringArrayList.size();
     }
 }
-/*
-if (filter != null && !filter.equals("")) {
-            notes = getIsDoneOrNotDone(filter);
-        }
-         private Iterable<Note> getIsDoneOrNotDone(String filter) {
-        Iterable<Note> notes;
-        if (filter.equals("true")) {
-            notes = noteRepo.findByIsDone(true);
-        } else {
-            notes = noteRepo.findByIsDone(false);
-        }
-        return notes;
-    }
- */

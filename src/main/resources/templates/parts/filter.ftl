@@ -32,9 +32,9 @@
     <aside class="aside aside-1">
         <div>
             <form method="post" action="/main">
-                <input type="text" name="text" class="text" placeholder="Введите сообщение" required="required"/>
+                <input type="text" name="text" class="text" placeholder="Введите новое сообщение" required="required"/>
                 <input type="text" name="comment" class="text" placeholder="Примечание"/><br>
-                <button type="submit">Добавить</button>
+                <button type="submit">Сохранить сообщение</button>
             </form>
         </div>
     </aside>
